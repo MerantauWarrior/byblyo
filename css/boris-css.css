@@ -290,7 +290,8 @@
     max-width: 100%;
 }
 .book-page-title{
-    padding-top: 150px;
+    padding-top: 15px;
+    text-align: center;
 }
 @media screen and (min-width: 1440px){
     .book-page-image{
