@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login</title>
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/components.min.css">
+  <link rel="stylesheet" href="css/boris-css.css">
+</head>
+<body class="login">
+
+  <div class="content">
+    <div class="login-logo"><img src="imgs/logo.png" alt="Byblyo"></div>
+    <!-- BEGIN LOGIN FORM -->
+    <form class="login-form" method="POST" action="http://publisher.tools.justnile.com/login" novalidate="novalidate">
+      <input type="hidden" name="_token" value="IYBnX2ZAKHbzjkoD7EcX8cBzWxcIVlSKH0PuoCEg">
+      <h3 class="form-title">Login to your account</h3>
+      <div class="alert alert-danger display-hide">
+        <button class="close" data-close="alert"></button>
+        <span> Enter any email and password. </span>
+      </div>
+      <div class="form-group">
+        <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+        <label class="control-label visible-ie8 visible-ie9">Email</label>
+        <div class="input-icon">
+          <i class="fa fa-user"></i>
+          <input class="form-control placeholder-no-fix" type="email" placeholder="Email" name="email"></div>
+      </div>
+      <div class="form-group">
+        <label class="control-label visible-ie8 visible-ie9">Password</label>
+        <div class="input-icon">
+          <i class="fa fa-lock"></i>
+          <input class="form-control placeholder-no-fix" type="password" placeholder="Password" name="password"></div>
+      </div>
+      <div class="form-actions">
+        <label class="rememberme mt-checkbox mt-checkbox-outline">
+          <input type="checkbox" name="remember"> Remember me
+          <span></span>
+        </label>
+        <!-- <button type="submit" class="btn green pull-right"> Login </button> -->
+        <input type="submit" class="btn btn-blue pull-right" style="left: -9999px" value="Login">
+      </div>
+    </form>
+    <!-- END LOGIN FORM -->
+    <!-- BEGIN FORGOT PASSWORD FORM -->
+    <form class="forget-form" action="index.html" method="post">
+      <h3>Forget Password ?</h3>
+      <p> Enter your e-mail address below to reset your password. </p>
+      <div class="form-group">
+        <div class="input-icon">
+          <i class="fa fa-envelope"></i>
+          <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Email" name="email">
+        </div>
+      </div>
+      <div class="form-actions">
+        <button type="button" id="back-btn" class="btn grey-salsa btn-outline"> Back</button>
+        <button type="submit" class="btn green pull-right"> Submit</button>
+      </div>
+    </form>
+    <!-- END FORGOT PASSWORD FORM -->
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.validate.min.js"></script>
+  <script>
+    $('.login-form').validate({
+      errorElement: 'span', //default input error message container
+      errorClass: 'help-block', // default input error message class
+      focusInvalid: false, // do not focus the last invalid input
+      rules: {
+        email: {
+          required: true
+        },
+        password: {
+          required: true,
+          minlength: 6,
+        }
+      },
+      messages: {
+        email: {
+          required: "Email is required."
+        },
+        password: {
+          required: "Password is required."
+        }
+      },
+      invalidHandler: function(event, validator) { //display error alert on form submit
+        $('.alert-danger', $('.login-form')).show();
+      },
+      highlight: function(element) { // hightlight error inputs
+        $(element)
+          .closest('.form-group').addClass('has-error'); // set error class to the control group
+      },
+      success: function(label) {
+        label.closest('.form-group').removeClass('has-error');
+        label.remove();
+      },
+      errorPlacement: function(error, element) {
+        error.insertAfter(element.closest('.input-icon'));
+      },
+      submitHandler: function(form) {
+        form.submit(); // form validation success, call ajax form submit
+      }
+    });
+  </script>
+</body>
+</html>

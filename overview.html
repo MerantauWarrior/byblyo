@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Overview</title>
+  <link href="http://fonts.googleapis.com/css?family=Oswald:400,300,700" rel="stylesheet" type="text/css">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css"/>
+  <link rel="stylesheet" href="css/components.min.css">
+  <link rel="stylesheet" href="css/layout.min.css">
+  <link rel="stylesheet" href="css/custom.min.css">
+  <link rel="stylesheet" href="css/bootstrap-table.min.css">
+  <link rel="stylesheet" href="css/nouislider.min.css">
+  <link rel="stylesheet" href="css/plugins.min.css">
+  <link rel="stylesheet" href="css/boris-css.css">
+  <style>
+    thead tr {
+      background-color: #00547f;
+      color: #ffffff;
+    }
+
+    .range-low {
+      background-color: #4bfd00;
+    }
+
+    .range-middle {
+      background-color: #fdc100;
+    }
+
+    .range-high {
+      background-color: #fe2f00;
+    }
+  </style>
+</head>
+<body class="page-header-fixed page-sidebar-closed-hide-logo body-light overview-page">
+
+<div class="wrapper">
+  <!-- BEGIN HEADER -->
+  <header class="page-header">
+    <nav class="navbar mega-menu" role="navigation">
+      <div class="container-fluid">
+        <div class="clearfix navbar-fixed-top">
+
+          <div class="overview-logo">
+            <img src="imgs/logo.png" alt="Byblyo">
+          </div>
+
+          <!-- BEGIN TOPBAR ACTIONS -->
+          <div class="topbar-actions">
+            <!-- BEGIN USER PROFILE -->
+            <div class="btn-group-img btn-group">
+              <button type="button" class="btn btn-sm md-skip dropdown-toggle" data-toggle="dropdown"
+                      data-hover="dropdown" data-close-others="true" aria-expanded="false">
+                <span>Hi, Example</span>
+                <img src="http://publisher.tools.justnile.com/assets/layouts/layout5/img/default_user.png" alt="">
+              </button>
+              <ul class="dropdown-menu-v2" role="menu">
+                <li>
+                  <a href="http://publisher.tools.justnile.com/get_change_password_page" style="color:white;">
+                    <i class="icon-key"></i> Change Password
+                  </a>
+                </li>
+                <li>
+                  <a href="http://publisher.tools.justnile.com/logout" onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();" style="color:white;">
+                    <i class="icon-power"></i> Log Out </a>
+                  <form id="logout-form" action="http://publisher.tools.justnile.com/logout" method="POST"
+                        style="display: none;">
+                    <input type="hidden" name="_token" value="IYBnX2ZAKHbzjkoD7EcX8cBzWxcIVlSKH0PuoCEg"></form>
+                </li>
+              </ul>
+            </div>
+            <!-- END USER PROFILE -->
+          </div>
+          <!-- END TOPBAR ACTIONS -->
+        </div>
+      </div>
+      <!--/container-->
+    </nav>
+  </header>
+  <!-- END HEADER -->
+  <div class="container-fluid">
+    <div class="page-content row">
+      <!-- BEGIN PAGE BASE CONTENT -->
+
+      <div class="row ">
+        <div class="overview-top__lt">
+          <div class="overview-top__title">
+            <b>Byblyo Dashboard</b> / <span>All Publishers</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="overview-top clearfix">
+          <div class="overview-top__forms">
+            <form id="form-select-search" class="select-search" action="#">
+              <select name="select-search" id="select-search" class="form-control">
+                <option value="0">All Publishers (232633)</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+            </form>
+            <form id="form-search" class="search" action="#">
+              <input style="background:white;" type="name" class="form-control" placeholder="ISBN, Title"
+                     name="filter">
+              <button type="submit" class="btn submit md-skip">
+                <i class="fa fa-search"></i>
+              </button>
+            </form>
+
+            <div class="overview-top__item">
+                <label>Demand</label>
+                <input type="text" class="form-control" id="name_edit">
+            </div>
+            <div class="overview-top__item">
+                <label>List Price</label>
+                <input type="text" class="form-control" id="name_edit">
+            </div>
+            <div class="overview-top__item">
+                <label>Average Price (New)</label>
+                <input type="text" class="form-control" id="name_edit">
+            </div>
+            <div class="overview-top__item">
+                <label>Average I.Discount (New)</label>
+                <input type="text" class="form-control" id="name_edit">
+            </div>
+            <div class="overview-top__item">
+                <label>Average Price (Used)</label>
+                <input type="text" class="form-control" id="name_edit">
+            </div>
+            <div class="overview-top__item">
+                <label>Average I.Discount (Used)</label>
+                <input type="text" class="form-control" id="name_edit">
+            </div>
+            <div class="overview-export">
+              <a class="btn btn-primary"
+                 href="http://publisher.tools.justnile.com/export_excel_overview?publisher=Routledge&amp;filter="
+                 role="button">
+                <span class="glyphicon glyphicon-export"></span> Export
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--<div class="row">-->
+        <!--<div class="col-md-6">-->
+          <!--<form action="https://byblyo.com/discount/range" method="POST">-->
+            <!--<input type="hidden" name="_token" value="szKeogcsFbIWmtkvoShTWWAQDdPI2lGBE05I96qk">-->
+            <!--<input type="hidden"-->
+                   <!--id="input-range-low"-->
+                   <!--name="discount_range_low"-->
+                   <!--value="45">-->
+            <!--<input type="hidden" id="input-range-high" name="discount_range_high" value="55">-->
+            <!--<div id="slider-range"></div>-->
+            <!--<div class="row" style="margin-top: 25px;">-->
+              <!--<div class="col-sm-4 text-center">-->
+                <!--<span class="label range-low">LOW</span>-->
+                <!--<span id="range-low-text">&lt; 45%</span>-->
+              <!--</div>-->
+              <!--<div class="col-sm-4 text-center">-->
+                <!--<span class="label range-middle">MEDIUM</span>-->
+                <!--<span id="range-middle-text">45% - 55%</span>-->
+              <!--</div>-->
+              <!--<div class="col-sm-4 text-center">-->
+                <!--<span class="label range-high">HIGH</span>-->
+                <!--<span id="range-high-text">&gt; 55%</span>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<button type="submit" class="btn btn-primary"-->
+                    <!--style="display: block; width: 100%;margin-top: 15px; margin-bottom: 15px;">-->
+              <!--<span class="glyphicon glyphicon-floppy-disk"></span> Save-->
+            <!--</button>-->
+          <!--</form>-->
+        <!--</div>-->
+      <!--</div>-->
+
+      <div class="row">
+        <div class="bootstrap-table">
+          <div class="fixed-table-toolbar"></div>
+
+          <div class="fixed-table-container" style="padding-bottom: 0px;">
+            <div class="fixed-table-body">
+              <table id="table-data" data-toggle="table" data-url="http://publisher.tools.justnile.com/overview/data"
+                     data-pagination="true" data-side-pagination="server" data-page-size="100"
+                     data-page-list="[20, 50, 100, 200]" data-sort-name="total_demand_past_six_months"
+                     data-sort-order="desc" class="table table-hover">
+                <thead>
+                <tr>
+                  <th style="text-align: center; vertical-align: middle; width: 120px; " rowspan="2"
+                      data-field="isbn13">
+                    <div class="th-inner sortable both">ISBN 13</div>
+                    <div class="fht-cell"></div>
+                  </th>
+                  <th style="text-align: center; vertical-align: middle; " rowspan="2" data-field="title">
+                    <div class="th-inner sortable both">Title</div>
+                    <div class="fht-cell"></div>
+                  </th>
+                  <th style="text-align: center; vertical-align: middle; width: 150px; " rowspan="2"
+                      data-field="total_demand_past_six_months">
+                    <div class="th-inner sortable both desc">Demand <br>(Past 6 Months)</div>
+                    <div class="fht-cell"></div>
+                  </th>
+                  <th style="text-align: center; vertical-align: middle; width: 150px; " rowspan="2"
+                      data-field="list_price_past_six_months">
+                    <div class="th-inner sortable both">List Price</div>
+                    <div class="fht-cell"></div>
+                  </th>
+                  <th class="text-center" style="" colspan="2">
+                    <div class="th-inner ">Average New</div>
+                    <div class="fht-cell"></div>
+                  </th>
+                  <th class="text-center" style="" colspan="2">
+                    <div class="th-inner ">Average Used</div>
+                    <div class="fht-cell"></div>
+                  </th>
+                </tr>
+                <tr>
+                  <th style="text-align: center; vertical-align: middle; width: 150px; "
+                      data-field="lowest_new_price_past_six_months" data-not-first-th="">
+                    <div class="th-inner sortable both">Price</div>
+                    <div class="fht-cell"></div>
+                  </th>
+                  <th style="text-align: center; vertical-align: middle; width: 150px; "
+                      data-field="implied_discount_new_lowest">
+                    <div class="th-inner sortable both">Implied Discount</div>
+                    <div class="fht-cell"></div>
+                  </th>
+                  <th style="text-align: center; vertical-align: middle; width: 150px; "
+                      data-field="lowest_new_price_past_six_months">
+                    <div class="th-inner sortable both">Price</div>
+                    <div class="fht-cell"></div>
+                  </th>
+                  <th style="text-align: center; vertical-align: middle; width: 150px; "
+                      data-field="implied_discount_new_lowest">
+                    <div class="th-inner sortable both">Implied Discount</div>
+                    <div class="fht-cell"></div>
+                  </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr data-index="0">
+                  <td style="vertical-align: middle; width: 120px; ">9780415922227</td>
+                  <td style="vertical-align: middle; "><a
+                          href="http://publisher.tools.justnile.com/historical?isbn=9780415922227&amp;range=12">Maps of
+                    Meaning: The Architecture of Belief</a></td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">5753</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">76.95</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">29.14</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">
+                    <div class="discount-low">74</div>
+                  </td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">29.14</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">74</td>
+                </tr>
+                <tr data-index="1">
+                  <td style="vertical-align: middle; width: 120px; ">9781138942653</td>
+                  <td style="vertical-align: middle; "><a
+                          href="http://publisher.tools.justnile.com/historical?isbn=9781138942653&amp;range=12">Encyclopedia
+                    of Counseling Package: Encyclopedia of Counseling: Master Review and Tutorial for the National
+                    Counselor Examination, State Counseling ... Comprehensive Examination (Volume 1)</a></td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">4884</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">64.95</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">44.18</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">
+                    <div class="discount-middle">49</div>
+                  </td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">44.18</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">49</td>
+                </tr>
+                <tr data-index="2">
+                  <td style="vertical-align: middle; width: 120px; ">9781138949201</td>
+                  <td style="vertical-align: middle; "><a
+                          href="http://publisher.tools.justnile.com/historical?isbn=9781138949201&amp;range=12">Ethics
+                    for Behavior Analysts, 3rd Edition</a></td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">3581</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">51.95</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">21.14</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">
+                    <div class="discount-high">71</div>
+                  </td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">21.14</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">71</td>
+                </tr>
+                <tr data-index="3">
+                  <td style="vertical-align: middle; width: 120px; ">9780415315746</td>
+                  <td style="vertical-align: middle; "><a
+                          href="http://publisher.tools.justnile.com/historical?isbn=9780415315746&amp;range=12">Writing
+                    Literature Reviews</a></td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">3283</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">70.95</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">37.01</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">60</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">37.01</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">60</td>
+                </tr>
+                <tr data-index="4">
+                  <td style="vertical-align: middle; width: 120px; ">9781138055285</td>
+                  <td style="vertical-align: middle; "><a
+                          href="http://publisher.tools.justnile.com/historical?isbn=9781138055285&amp;range=12">Readings
+                    for Diversity and Social Justice</a></td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">3176</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">64.95</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">44.88</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">48</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">44.88</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">48</td>
+                </tr>
+                <tr data-index="5">
+                  <td style="vertical-align: middle; width: 120px; ">9780415892940</td>
+                  <td style="vertical-align: middle; "><a
+                          href="http://publisher.tools.justnile.com/historical?isbn=9780415892940&amp;range=12">Readings
+                    for Diversity and Social Justice</a></td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">2889</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">68.95</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">37.91</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">60</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">37.91</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">60</td>
+                </tr>
+                <tr data-index="6">
+                  <td style="vertical-align: middle; width: 120px; ">9780415908085</td>
+                  <td style="vertical-align: middle; "><a
+                          href="http://publisher.tools.justnile.com/historical?isbn=9780415908085&amp;range=12">Teaching
+                    to Transgress: Education as the Practice of Freedom (Harvest in Translation)</a></td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">2746</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">38.95</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">23.30</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">57</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">23.30</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">57</td>
+                </tr>
+                <tr data-index="7">
+                  <td style="vertical-align: middle; width: 120px; ">9781596671997</td>
+                  <td style="vertical-align: middle; "><a
+                          href="http://publisher.tools.justnile.com/historical?isbn=9781596671997&amp;range=12">What
+                    Great Teachers Do Differently: 17 Things That Matter Most</a></td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">2575</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">29.95</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">15.73</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">64</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">15.73</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">64</td>
+                </tr>
+                <tr data-index="8">
+                  <td style="vertical-align: middle; width: 120px; ">9780415690157</td>
+                  <td style="vertical-align: middle; "><a
+                          href="http://publisher.tools.justnile.com/historical?isbn=9780415690157&amp;range=12">Visible
+                    Learning for Teachers: Maximizing Impact on Learning</a></td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">2411</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">52.95</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">27.64</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">62</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">27.64</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">62</td>
+                </tr>
+                <tr data-index="9">
+                  <td style="vertical-align: middle; width: 120px; ">9781596672000</td>
+                  <td style="vertical-align: middle; "><a
+                          href="http://publisher.tools.justnile.com/historical?isbn=9781596672000&amp;range=12">What
+                    Great Principals Do Differently: Eighteen Things That Matter Most</a></td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">2221</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">29.95</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">19.95</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">52</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">19.95</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">52</td>
+                </tr>
+                <tr data-index="10">
+                  <td style="vertical-align: middle; width: 120px; ">9780415742481</td>
+                  <td style="vertical-align: middle; "><a
+                          href="http://publisher.tools.justnile.com/historical?isbn=9780415742481&amp;range=12">An
+                    Emotionally Focused Workbook for Couples: The Two of Us</a></td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">2158</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">42.95</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">31.14</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">46</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">31.14</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">46</td>
+                </tr>
+                <tr data-index="11">
+                  <td style="vertical-align: middle; width: 120px; ">9780415790529</td>
+                  <td style="vertical-align: middle; "><a
+                          href="http://publisher.tools.justnile.com/historical?isbn=9780415790529&amp;range=12">Understanding
+                    Research Methods: An Overview of the Essentials</a></td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">2142</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">98.95</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">69.80</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">44</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">69.80</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">44</td>
+                </tr>
+                <tr data-index="12">
+                  <td style="vertical-align: middle; width: 120px; ">9781138821620</td>
+                  <td style="vertical-align: middle; "><a
+                          href="http://publisher.tools.justnile.com/historical?isbn=9781138821620&amp;range=12">Feminism
+                    Is for Everybody: Passionate Politics</a></td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">2053</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">26.95</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">20.83</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">44</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">20.83</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">44</td>
+                </tr>
+                <tr data-index="13">
+                  <td style="vertical-align: middle; width: 120px; ">9780878309832</td>
+                  <td style="vertical-align: middle; "><a
+                          href="http://publisher.tools.justnile.com/historical?isbn=9780878309832&amp;range=12">An Actor
+                    Prepares</a></td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">1958</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">33.95</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">18.80</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">62</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">18.80</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">62</td>
+                </tr>
+                <tr data-index="14">
+                  <td style="vertical-align: middle; width: 120px; ">9780415708234</td>
+                  <td style="vertical-align: middle; "><a
+                          href="http://publisher.tools.justnile.com/historical?isbn=9780415708234&amp;range=12">Healing
+                    the Fragmented Selves of Trauma Survivors</a></td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">1944</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">41.95</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">28.56</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">49</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">28.56</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">49</td>
+                </tr>
+                <tr data-index="15">
+                  <td style="vertical-align: middle; width: 120px; ">9781138940925</td>
+                  <td style="vertical-align: middle; "><a
+                          href="http://publisher.tools.justnile.com/historical?isbn=9781138940925&amp;range=12">AVP 100
+                    Bundle: Cinematography: Theory and Practice: Image Making for Cinematographers and Directors (Volume
+                    3)</a></td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">1844</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">62.95</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">38.76</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">55</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">38.76</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">55</td>
+                </tr>
+                <tr data-index="16">
+                  <td style="vertical-align: middle; width: 120px; ">9781138635524</td>
+                  <td style="vertical-align: middle; "><a
+                          href="http://publisher.tools.justnile.com/historical?isbn=9781138635524&amp;range=12">Set
+                    Visible Learning Feedback and Ten Mindframes for Visible Learning: 10 Mindframes for Visible
+                    Learning: Teaching for Success (Volume 1)</a></td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">1819</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">29.95</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">23.58</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">43</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">23.58</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">43</td>
+                </tr>
+                <tr data-index="17">
+                  <td style="vertical-align: middle; width: 120px; ">9780415945684</td>
+                  <td style="vertical-align: middle; "><a
+                          href="http://publisher.tools.justnile.com/historical?isbn=9780415945684&amp;range=12">The
+                    Practice of Emotionally Focused Couple Therapy: Creating Connection (Basic Principles into Practice
+                    Series)</a></td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">1808</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">45.95</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">35.22</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">42</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">35.22</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">42</td>
+                </tr>
+                <tr data-index="18">
+                  <td style="vertical-align: middle; width: 120px; ">9781138819511</td>
+                  <td style="vertical-align: middle; "><a
+                          href="http://publisher.tools.justnile.com/historical?isbn=9781138819511&amp;range=12">Human
+                    Behavior in the Social Environment: Perspectives on Development and the Life Course</a></td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">1722</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">105.00</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">79.74</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">40</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">79.74</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">40</td>
+                </tr>
+                <tr data-index="19">
+                  <td style="vertical-align: middle; width: 120px; ">9781138087255</td>
+                  <td style="vertical-align: middle; "><a
+                          href="http://publisher.tools.justnile.com/historical?isbn=9781138087255&amp;range=12">American
+                    Education (Sociocultural, Political, and Historical Studies in Education)</a></td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">1712</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">52.95</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">42.13</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">38</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">42.13</td>
+                  <td style="text-align: center; vertical-align: middle; width: 150px; ">38</td>
+                </tr>
+                </tbody>
+                <fthfoot
+                        style="display: table-footer-group; border-spacing: 0px; height: 0px; border-collapse: collapse; visibility: hidden;">
+                  <fthtr style="display: table-row; border-spacing: 0px; height: 0px; border-collapse: collapse;">
+                    <fthtd style="display: table-cell; height: 0px; width: auto;"></fthtd>
+                    <fthtd style="display: table-cell; height: 0px; width: auto;"></fthtd>
+                    <fthtd style="display: table-cell; height: 0px; width: auto;"></fthtd>
+                    <fthtd style="display: table-cell; height: 0px; width: auto;"></fthtd>
+                    <fthtd style="display: table-cell; height: 0px; width: auto;"></fthtd>
+                    <fthtd style="display: table-cell; height: 0px; width: auto;"></fthtd>
+                    <fthtd style="display: table-cell; height: 0px; width: auto;"></fthtd>
+                    <fthtd style="display: table-cell; height: 0px; width: auto;"></fthtd>
+                  </fthtr>
+                </fthfoot>
+              </table>
+            </div>
+            <div class="fixed-table-footer" style="display: none;">
+              <table>
+                <tbody>
+                <tr></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="fixed-table-pagination" style="display: block;">
+            <div class="pull-left pagination-detail"><span class="pagination-info">Showing 1 to 20 of 174837 rows</span><span
+                    class="page-list"><span class="btn-group dropup"><button type="button"
+                                                                             class="btn btn-default dropdown-toggle"
+                                                                             data-toggle="dropdown"><span
+                    class="page-size">20</span> <span class="caret"></span></button><ul class="dropdown-menu"
+                                                                                        role="menu"><li role="menuitem"
+                                                                                                        class="active"><a
+                    href="#">20</a></li><li role="menuitem" class=""><a href="#">50</a></li><li role="menuitem"
+                                                                                                class=""><a
+                    href="#">100</a></li><li role="menuitem" class=""><a href="#">200</a></li></ul></span> rows per page</span>
+            </div>
+            <div class="pull-right pagination">
+              <ul class="pagination">
+                <li class="page-item page-pre"><a class="page-link" href="#">‹</a></li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                <li class="page-item page-last-separator disabled"><a class="page-link" href="#">...</a></li>
+                <li class="page-item page-last"><a class="page-link" href="#">8742</a></li>
+                <li class="page-item page-next"><a class="page-link" href="#">›</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+
+
+      </div>
+      <!-- END PAGE BASE CONTENT -->
+    </div>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-switch.min.js"></script>
+<script src="js/jquery.slimscroll.min.js"></script>
+<script src="js/select2.full.min.js"></script>
+<script src="js/jquery.blockui.min.js"></script>
+<script src="js/app.min.js"></script>
+<script src="js/nouislider.min.js"></script>
+<script src="js/layout.min.js"></script>
+<script src="js/jquery.floatThead.min.js"></script>
+<script>
+
+  // slider
+//  var sliderRange = document.getElementById('slider-range');
+//  noUiSlider.create(sliderRange, {
+//    start: [45, 55],
+//    connect: [true, true, true],
+//    range: {
+//      'min': [0],
+//      'max': [100]
+//    }
+//  });
+//  var connect = sliderRange.querySelectorAll('.noUi-connect');
+//  var classes = ['range-low', 'range-middle', 'range-high'];
+//  for (var i = 0; i < connect.length; i++) {
+//    connect[i].classList.add(classes[i]);
+//  }
+//  sliderRange.noUiSlider.on('update', function (values, handle) {
+//    var lowLimit = parseInt(values[0]);
+//    var highLimit = parseInt(values[1]);
+//
+//    $('#input-range-low').val(lowLimit);
+//    $('#input-range-high').val(highLimit);
+//    $('#range-low-text').text('< ' + lowLimit + '%');
+//    $('#range-middle-text').text(lowLimit + '% - ' + highLimit + '%');
+//    $('#range-high-text').text('> ' + highLimit + '%');
+//  });
+
+
+  function formatTitle(value, row, index, field) {
+    return '<a href="http://publisher.tools.justnile.com/historical?isbn=' + row.isbn13 + '&range=12">' + value + '</a>';
+  }
+
+  function formatNumber(value) {
+    return value ? parseFloat(value).toFixed(2) : '0.00';
+  }
+
+  function formatPercent(value) {
+    return value ? (parseFloat(value) * 100).toFixed() : '0' + ' %';
+  }
+
+  $(document).ready(function () {
+    $('table').floatThead({
+      top: 50,
+      responsiveContainer: function ($table) {
+        return $table.closest('.fixed-table-body');
+      }
+    });
+
+  });
+</script>
+</body>
+</html>
