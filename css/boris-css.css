@@ -89,6 +89,9 @@
 
 /*OVERVIEW PAGE*/
 
+.overview-page{
+    overflow-y: scroll;
+}
 .body-light{
     background-color: #fefefe;
 }
