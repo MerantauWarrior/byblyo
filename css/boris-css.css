@@ -230,6 +230,10 @@
     width: 264px;
     padding: 0 15px;
 }
+.book-page-image img{
+    border:1px solid gray;
+    margin-top: 30px;
+}
 .book-page-chart{
     float: left;
     width: 80%;
@@ -376,7 +380,14 @@
     .book-page-chart{
         width: 100%;
     }
+    .book-page-image img{
+        margin-top: 10px;
+    }
     .book-page-image{
+        float: none;
+        width: 260px;
+        margin-left: auto;
+        margin-right: auto;
         margin-bottom: 15px;
     }
     .book-page-title {
