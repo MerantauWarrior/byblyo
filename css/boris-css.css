@@ -442,6 +442,10 @@ body{
     .settings-page__range-label{
         margin-bottom: 10px;
     }
+    .settings-page-form-r{
+        margin-left: 0;
+        margin-right: 0;
+    }
 
     .book-page-export,
     .fixed-table-pagination,
