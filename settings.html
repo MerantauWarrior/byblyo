@@ -1,0 +1,242 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="csrf-token" content="N3W0zvXqCMshBlDarlpa2EBVMc2sirqM9iLJl13J">
+  <title>Byblyo</title>
+  <link href="http://fonts.googleapis.com/css?family=Oswald:400,300,700" rel="stylesheet" type="text/css">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css"/>
+  <link rel="stylesheet" href="css/components.min.css">
+  <link rel="stylesheet" href="css/layout.min.css">
+  <link rel="stylesheet" href="css/custom.min.css">
+  <link rel="stylesheet" href="css/bootstrap-table.min.css">
+  <link rel="stylesheet" href="css/nouislider.min.css">
+  <link rel="stylesheet" href="css/boris-css.css">
+
+  <style>
+    .range-low {
+      background-color: #4bfd00;
+    }
+
+    .range-middle {
+      background-color: #fdc100;
+    }
+
+    .range-high {
+      background-color: #fe2f00;
+    }
+  </style>
+</head>
+<body>
+<div class="page-header-fixed page-sidebar-closed-hide-logo body-light settings-page">
+  <div class="wrapper">
+    <header class="page-header">
+      <nav class="navbar mega-menu" role="navigation">
+        <div class="container-fluid">
+          <div class="clearfix navbar-fixed-top">
+            <div class="book-page-logo">
+              <img src="https://byblyo.com/img/logo.png" alt="Byblyo">
+            </div>
+            <div class="book-page-breadcrumbs">
+            </div>
+            <div class="topbar-actions">
+              <div class="btn-group-img btn-group">
+                <button type="button" class="btn btn-sm md-skip dropdown-toggle" data-toggle="dropdown"
+                        data-hover="dropdown" data-close-others="true" aria-expanded="false">
+                  <span>Hi, Example</span>
+                  <img src="https://byblyo.com/img/default_user.png" alt="">
+                </button>
+                <ul class="dropdown-menu-v2" role="menu">
+                  <li>
+                    <a href="https://byblyo.com/get_change_password_page" style="color:white;">
+                      <i class="icon-key"></i> Change Password
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://byblyo.com/logout"
+                       onclick="event.preventDefault();document.getElementById('logout-form').submit();"
+                       style="color:white;">
+                      <i class="icon-power"></i> Log Out
+                    </a>
+                    <form id="logout-form" action="https://byblyo.com/logout" method="POST" style="display: none;">
+                      <input type="hidden" name="_token" value="N3W0zvXqCMshBlDarlpa2EBVMc2sirqM9iLJl13J"></form>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="container-fluid">
+      <div class="row ">
+        <div class="overview-top__lt">
+          <div class="overview-top__title">
+            <b>My Settings</b>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+          <form action="https://byblyo.com/setting" method="POST">
+            <input type="hidden" name="_token" value="N3W0zvXqCMshBlDarlpa2EBVMc2sirqM9iLJl13J"> <input type="hidden"
+                                                                                                        id="input-range-low"
+                                                                                                        name="discount_range_low"
+                                                                                                        value="45">
+            <input type="hidden" id="input-range-high" name="discount_range_high" value="55">
+            <label for="" class="settings-page__range-label"><b>Discount Range Color</b></label>
+            <div id="slider-range"></div>
+            <div class="row" style="margin: 25px 0;">
+              <div class="col-sm-4 text-center">
+                <span class="label range-low">LOW</span>
+                <span id="range-low-text">&lt; 45%</span>
+              </div>
+              <div class="col-sm-4 text-center">
+                <span class="label range-middle">MEDIUM</span>
+                <span id="range-middle-text">45% - 55%</span>
+              </div>
+              <div class="col-sm-4 text-center">
+                <span class="label range-high">HIGH</span>
+                <span id="range-high-text">&gt; 55%</span>
+              </div>
+            </div>
+
+            <div class="settings-page-form-r">
+              <div class="settings-page-form-b form-inline col-md-8">
+                <label for=""><b>Default Overview Page Table Order</b></label>
+                <select class="form-control" name="overview_sort">
+                  <option value="publisher">Publisher</option>
+                  <option value="isbn13">ISBN 13</option>
+                  <option value="title">Title</option>
+                  <option value="total_demand_past_six_months" selected="">
+                    Demand
+                  </option>
+                  <option value="list_price_past_six_months">
+                    List Price
+                  </option>
+                  <option value="lowest_new_price_past_six_months">
+                    Average New Price
+                  </option>
+                  <option value="implied_discount_new_lowest">
+                    Average New Implied Dscount
+                  </option>
+                  <option value="lowest_used_price_past_six_months">
+                    Average Used Price
+                  </option>
+                  <option value="implied_discount_used_lowest">
+                    Average Used Implied Dscount
+                  </option>
+                </select>
+              </div>
+              <div class="settings-page-form-b form-inline col-md-4">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="desc" checked>
+                    Descending
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="asc">
+                    Ascending
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="settings-page-form-r">
+              <div class="settings-page-form-b form-inline col-md-8">
+                <label for=""><b>Default Historical Page Table Order</b></label>
+                <select class="form-control" name="historical_sort">
+                  <option value="date" selected="">
+                    Date
+                  </option>
+                  <option value="demand">
+                    Demand
+                  </option>
+                  <option value="list_price">
+                    List Price
+                  </option>
+                  <option value="lowest_new_price">
+                    Average New Price
+                  </option>
+                  <option value="implied_discount_new_lowest">
+                    Average New Implied Dscount
+                  </option>
+                  <option value="lowest_used_price">
+                    Average Used Price
+                  </option>
+                  <option value="implied_discount_used_lowest">
+                    Average Used Implied Dscount
+                  </option>
+                </select>
+              </div>
+              <div class="settings-page-form-b form-inline col-md-4">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="optionsRadios2" id="optionsRadios11" value="desc" checked>
+                    Descending
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="optionsRadios2" id="optionsRadios21" value="asc">
+                    Ascending
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="text-center col-md-12">
+              <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<script src="js/nouislider.min.js"></script>
+<script>
+  $(document).ready(function () {
+    // slider
+    var sliderRange = document.getElementById('slider-range');
+    noUiSlider.create(sliderRange, {
+      start: [45, 55],
+      connect: [true, true, true],
+      range: {
+        'min': [0],
+        'max': [100]
+      }
+    });
+    var connect = sliderRange.querySelectorAll('.noUi-connect');
+    var classes = ['range-low', 'range-middle', 'range-high'];
+    for (var i = 0; i < connect.length; i++) {
+      connect[i].classList.add(classes[i]);
+    }
+    sliderRange.noUiSlider.on('update', function (values, handle) {
+      var lowLimit = parseInt(values[0]);
+      var highLimit = parseInt(values[1]);
+
+      $('#input-range-low').val(lowLimit);
+      $('#input-range-high').val(highLimit);
+      $('#range-low-text').text('< ' + lowLimit + '%');
+      $('#range-middle-text').text(lowLimit + '% - ' + highLimit + '%');
+      $('#range-high-text').text('> ' + highLimit + '%');
+    });
+  });
+</script>
+
+
+</body>
+</html>
