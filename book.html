@@ -6,7 +6,8 @@
   <title>9780415922227 - Maps of Meaning: The Architecture of Belief</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css"/>
   <link rel="stylesheet" href="css/bootstrap-table.min.css">
   <link rel="stylesheet" href="css/components.min.css">
   <link rel="stylesheet" href="css/layout.min.css">
@@ -94,7 +95,7 @@
   <div class="row">
     <div class="book-page-image">
       <img src="https://jackets.dmmserver.com/media/356/97804159/9780415922227.jpg" width="100%" height="auto"
-           style="border:1px solid gray; margin-top: 30px;" alt="9780415922227">
+           alt="9780415922227">
       <ul class="book-chart-range">
         <li>
           <a href="http://publisher.tools.justnile.com/historical?isbn=9780415922227&amp;range=6" class="">6 months</a>
@@ -109,19 +110,22 @@
       </ul>
     </div>
     <div class="book-page-chart">
-      <div class="chartjs-size-monitor"
-           style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
-        <div class="chartjs-size-monitor-expand"
-             style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-          <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
-        </div>
-        <div class="chartjs-size-monitor-shrink"
-             style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-          <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
-        </div>
+      <!--<div class="chartjs-size-monitor"-->
+           <!--style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">-->
+        <!--<div class="chartjs-size-monitor-expand"-->
+             <!--style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">-->
+          <!--<div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>-->
+        <!--</div>-->
+        <!--<div class="chartjs-size-monitor-shrink"-->
+             <!--style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">-->
+          <!--<div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <div class="table-responsive">
+        <canvas id="myChart" width="1094" height="410" class="chartjs-render-monitor"
+                style="display: block; width: 1094px; height: 410px;"></canvas>
       </div>
-      <canvas id="myChart" width="1094" height="410" class="chartjs-render-monitor"
-              style="display: block; width: 1094px; height: 410px;"></canvas>
+
     </div>
   </div>
   <div class="row">
@@ -203,7 +207,9 @@
                 <td class="text-center" style="vertical-align: middle; ">986</td>
                 <td class="text-center" style="vertical-align: middle; ">76,95</td>
                 <td class="text-center" style="">21,00</td>
-                <td class="text-center" style=""><div class="discount-low">83 %</div></td>
+                <td class="text-center" style="">
+                  <div class="discount-low">83 %</div>
+                </td>
                 <td class="text-center" style="">9,93</td>
                 <td class="text-center" style="">97 %</td>
               </tr>
@@ -212,7 +218,9 @@
                 <td class="text-center" style="vertical-align: middle; ">960</td>
                 <td class="text-center" style="vertical-align: middle; ">76,95</td>
                 <td class="text-center" style="">28,15</td>
-                <td class="text-center" style=""><div class="discount-low">75 %</div></td>
+                <td class="text-center" style="">
+                  <div class="discount-low">75 %</div>
+                </td>
                 <td class="text-center" style="">24,07</td>
                 <td class="text-center" style="">80 %</td>
               </tr>
@@ -336,7 +344,7 @@
     data: {
       labels: JSON.parse('["Apr 18","May 18","Jun 18","Jul 18","Aug 18","Sep 18","Oct 18","Nov 18","Dec 18","Jan 19"]'),
       datasets: [
-         {
+        {
           label: 'List Price',
           yAxisID: 'price',
           data: JSON.parse('[76.9500000000000028421709430404007434844970703125,76.9500000000000028421709430404007434844970703125,76.9500000000000028421709430404007434844970703125,76.9500000000000028421709430404007434844970703125,76.9500000000000028421709430404007434844970703125,76.9500000000000028421709430404007434844970703125,76.9500000000000028421709430404007434844970703125,76.9500000000000028421709430404007434844970703125,76.9500000000000028421709430404007434844970703125,76.9500000000000028421709430404007434844970703125]'),
@@ -377,6 +385,8 @@
       ]
     },
     options: {
+      responsive: false,
+      maintainAspectRatio: false,
       scales: {
         xAxes: [{
           display: true,
@@ -433,7 +443,7 @@
 
   $('table').floatThead({
     top: 50,
-    responsiveContainer: function($table){
+    responsiveContainer: function ($table) {
       return $table.closest('.fixed-table-body');
     }
   });
